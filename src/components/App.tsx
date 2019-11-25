@@ -4,12 +4,10 @@ import "firebase/firestore";
 import config from "../config/firebase-config";
 import { Header } from "./Header";
 
-const App: React.FC = () => {
-  React.useEffect(() => {
-    firebase.initializeApp(config);
-    firebase.firestore().settings({ timestampsInSnapshots: true });
-  }, []);
+firebase.initializeApp(config);
+firebase.firestore().settings({ timestampsInSnapshots: true });
 
+const App: React.FC = () => {
   return <Header />;
 };
 
