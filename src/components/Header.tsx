@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { AppBar, Toolbar, Typography, Button, Avatar } from "@material-ui/core";
+import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import firebase from "firebase/app";
 import "firebase/auth";
 
@@ -20,6 +22,10 @@ const useStyles = makeStyles(theme => ({
   avatar: {
     margin: 10,
     backgroundColor: "white"
+  },
+  link: {
+    textDecoration: "none",
+    color: "white"
   }
 }));
 
@@ -48,7 +54,9 @@ export const Header = () => {
       <AppBar position="static" color="primary">
         <Toolbar>
           <Typography variant="h3" color="inherit" className={styles.flex}>
-            Firebase Videos
+            <Link to="/" className={styles.link}>
+              Firebase Videos
+            </Link>
           </Typography>
           {isLogin ? (
             <div>
@@ -66,6 +74,12 @@ export const Header = () => {
                 onClick={signOut}
               >
                 Sign out
+              </Button>
+              <Button variant="contained" color="default">
+                <Link to="/upload" className={styles.link}>
+                  Upload
+                </Link>
+                <CloudUploadIcon className={styles.rightIcon} />
               </Button>
             </div>
           ) : (
