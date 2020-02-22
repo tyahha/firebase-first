@@ -7,7 +7,7 @@ import { Header } from "./Header";
 import { VideoUpload } from "./VideoUpload";
 
 firebase.initializeApp(config);
-firebase.firestore().settings({ timestampsInSnapshots: true });
+firebase.firestore().settings({});
 
 const App: React.FC = () => {
   return (
