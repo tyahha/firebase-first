@@ -5,6 +5,7 @@ import "firebase/firestore";
 import config from "../config/firebase-config";
 import { Header } from "./Header";
 import { VideoUpload } from "./VideoUpload";
+import { VideoFeed } from "./VideoFeed";
 
 firebase.initializeApp(config);
 firebase.firestore().settings({});
@@ -14,6 +15,9 @@ const App: React.FC = () => {
     <Router>
       <Header />
       <Switch>
+        <Route exact path="/">
+          <VideoFeed />
+        </Route>
         <Route path="/upload">
           <VideoUpload />
         </Route>
